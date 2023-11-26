@@ -5,14 +5,17 @@ from langchain.embeddings import HuggingFaceEmbeddings
 import shutil
 import box
 import yaml
+import warnings
 
 
-# Import config vars
-with open('config.yml', 'r', encoding='utf8') as ymlfile:
-    cfg = box.Box(yaml.safe_load(ymlfile))
+warnings.filterwarnings("ignore", category=DeprecationWarning)
 
 
 def run_ingest():
+    # Import config vars
+    with open('config.yml', 'r', encoding='utf8') as ymlfile:
+        cfg = box.Box(yaml.safe_load(ymlfile))
+
     loader = DirectoryLoader(cfg.DATA_PATH,
                              glob='*.pdf',
                              loader_cls=PyPDFLoader)

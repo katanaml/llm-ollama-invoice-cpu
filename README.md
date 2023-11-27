@@ -1,7 +1,7 @@
 # Invoice data processing LLM RAG on CPU with Ollama and ChromaDB
 
 
-**Youtube**: <a href="https://www.youtube.com/watch?v=XuvdgCuydsM" target="_blank">Change Video</a>
+<a href="https://www.youtube.com/watch?v=Higmr8qMoNk" target="_blank">Easy-to-Follow RAG Pipeline Tutorial: Invoice Processing with ChromaDB & LangChain</a>
 
 ___
 

@@ -1,5 +1,8 @@
 from langchain.vectorstores import Chroma
 from langchain.embeddings import HuggingFaceEmbeddings
+from langchain.prompts import PromptTemplate
+from langchain.chains import RetrievalQA
+from langchain.llms import Ollama
 import box
 import yaml
 import warnings
@@ -27,6 +30,33 @@ def load_retriever(embeddings, store_path, collection_name, vector_space, num_re
 
     return retriever
 
+
+def load_prompt_template():
+    template = """Use the following pieces of information to answer the user's question.
+    If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+    Context: {context}
+    Question: {question}
+
+    Only return the helpful answer below and nothing else.
+    Helpful answer:
+    """
+
+    prompt = PromptTemplate.from_template(template)
+
+    return prompt
+
+
+def load_qa_chain(retriever, llm, prompt):
+    return RetrievalQA.from_chain_type(
+        llm=llm,
+        retriever=retriever,
+        chain_type="stuff",
+        return_source_documents=True,
+        chain_type_kwargs={'prompt': prompt}
+    )
+
+
 def build_rag_pipeline():
     # Import config vars
     with open('config.yml', 'r', encoding='utf8') as ymlfile:
@@ -44,6 +74,15 @@ def build_rag_pipeline():
                                cfg.VECTOR_SPACE,
                                cfg.NUM_RESULTS)
 
-    return retriever
+    print("Loading prompt template...")
+    prompt = load_prompt_template()
+
+    print("Loading Ollama...")
+    llm = Ollama(model="llama2:13b-chat-q5_K_M", verbose=False, temperature=0)
+
+    print("Loading QA chain...")
+    qa_chain = load_qa_chain(retriever, llm, prompt)
+
+    return qa_chain
 
 

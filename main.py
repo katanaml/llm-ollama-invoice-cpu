@@ -2,6 +2,11 @@ import timeit
 import argparse
 from rag.pipeline import build_rag_pipeline
 
+def get_rag_response(query, chain):
+    response = chain({'query': query})
+
+    return response['result']
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
@@ -13,8 +18,9 @@ if __name__ == "__main__":
 
     start = timeit.default_timer()
 
-    retriever = build_rag_pipeline()
-    answer = retriever.get_relevant_documents(args.input)
+    qa_chain = build_rag_pipeline()
+    print('Retrieving answer...')
+    answer = get_rag_response(args.input, qa_chain)
 
     end = timeit.default_timer()
 

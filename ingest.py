@@ -24,6 +24,7 @@ def run_ingest():
     text_splitter = RecursiveCharacterTextSplitter(chunk_size=cfg.CHUNK_SIZE,
                                                    chunk_overlap=cfg.CHUNK_OVERLAP)
     texts = text_splitter.split_documents(documents)
+    print(f"Loaded {len(texts)} splits")
 
     embeddings = HuggingFaceEmbeddings(model_name=cfg.EMBEDDINGS,
                                        model_kwargs={'device': cfg.DEVICE},

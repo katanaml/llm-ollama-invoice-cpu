@@ -15,6 +15,8 @@ ___
 pip install -r requirements.txt`
 ```
 
+Install Ollama and pull LLM model specified in config.yml
+
 2. Copy text PDF files to the `data` folder.
 3. Run the script, to convert text to vector embeddings and save in Chroma vector storage: 
 

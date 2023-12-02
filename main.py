@@ -1,7 +1,6 @@
 import timeit
 import argparse
 from rag.pipeline import build_rag_pipeline
-import re
 import json
 
 

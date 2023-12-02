@@ -78,7 +78,7 @@ def build_rag_pipeline():
     prompt = load_prompt_template()
 
     print("Loading Ollama...")
-    llm = Ollama(model=cfg.LLM, verbose=False, temperature=0, num_thread=8)
+    llm = Ollama(model=cfg.LLM, verbose=False, temperature=0)
 
     print("Loading QA chain...")
     qa_chain = load_qa_chain(retriever, llm, prompt)

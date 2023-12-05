@@ -3,6 +3,8 @@
 
 <a href="https://www.youtube.com/watch?v=Higmr8qMoNk" target="_blank">Easy-to-Follow RAG Pipeline Tutorial: Invoice Processing with ChromaDB & LangChain</a>
 
+<a href="https://www.youtube.com/watch?v=mONpftuo02M" target="_blank">Secure and Private: On-Premise Invoice Processing with LangChain and Ollama RAG</a>
+
 ___
 
 ## Quickstart

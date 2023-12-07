@@ -17,16 +17,17 @@ ___
 pip install -r requirements.txt`
 ```
 
-Install Ollama and pull LLM model specified in config.yml
+2. Install Ollama and pull LLM model specified in config.yml
 
-2. Copy text PDF files to the `data` folder.
-3. Run the script, to convert text to vector embeddings and save in Chroma vector storage: 
+3. Copy text PDF files to the `data` folder.
+   
+4. Run the script, to convert text to vector embeddings and save in Chroma vector storage: 
 
 ```
 python ingest.py
 ```
 
-4. Run the script, to process data with LLM RAG and return the answer: 
+5. Run the script, to process data with LLM RAG and return the answer: 
 
 ```
 python main.py "What is the invoice number value?"

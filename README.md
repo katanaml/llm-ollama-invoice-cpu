@@ -14,7 +14,7 @@ ___
 1. Install the requirements: 
 
 ```
-pip install -r requirements.txt`
+pip install -r requirements.txt
 ```
 
 2. Install Ollama and pull LLM model specified in config.yml

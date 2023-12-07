@@ -17,7 +17,7 @@ ___
 pip install -r requirements.txt
 ```
 
-2. Install Ollama and pull LLM model specified in config.yml
+2. Install <a href="https://ollama.ai">Ollama</a> and pull LLM model specified in config.yml
 
 3. Copy text PDF files to the `data` folder.
    
